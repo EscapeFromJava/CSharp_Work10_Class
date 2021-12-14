@@ -19,6 +19,7 @@ namespace CSharp_Work10_Class
             s.printArea();
             Qube q = new Qube(x1, y1, x2, y2);
             q.printLength();
+            q.printQubeArea();
             q.printVolume();
             Console.ReadKey();
         }
@@ -71,6 +72,7 @@ namespace CSharp_Work10_Class
         {
             Console.WriteLine("Длина стороны {0} = {1:f2}", name, Length());
         }
+
     }
 
     class Square : Figure
@@ -111,11 +113,14 @@ namespace CSharp_Work10_Class
             X2 = x2i;
             Y2 = y2i;
         }
-        protected override double Area()
+        protected double qubeArea()
         {
-            throw new NotImplementedException();
+            return 6 * Area();
         }
-
+        public void printQubeArea()
+        {
+            Console.WriteLine("Площадь {0} = {1:f2}", name, qubeArea());
+        }
         protected override double Volume()
         {
             return Length() * Length() * Length();
@@ -125,6 +130,8 @@ namespace CSharp_Work10_Class
         {
             Console.WriteLine("Объем {0} = {1:f2}", name, Volume());
         }
+
+        
     }
 
 }
